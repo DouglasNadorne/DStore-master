@@ -1,0 +1,22 @@
+.form-input {
+    height: 40px;
+    width: 450px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border-style: none;
+    background-color: var(--icon-color);
+}
+
+.form-input:hover {
+    border: 2px solid var(--primary-color);
+}
+
+
+
+@media (max-width: 768px) {
+    .form-input {
+        height: 35px;
+        width: 300px;
+    }
+
+}

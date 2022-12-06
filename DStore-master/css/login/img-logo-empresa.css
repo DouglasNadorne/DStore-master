@@ -1,0 +1,18 @@
+.img-logo-empresa {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    background-color: var(--second-color);
+    box-shadow: 0 4px 4px #0004;
+    transition: 1s;
+}
+
+.img-logo-empresa:hover {
+    background-color: var(--icon-color);
+    transform: translateY(-10%);
+    color: var(--text-color-light);
+}

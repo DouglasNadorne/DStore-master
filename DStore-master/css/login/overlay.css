@@ -1,0 +1,17 @@
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px;
+    background-image: linear-gradient(#2f1681, #d7d6fa, #605ceb);
+    transition: 1s;
+}
+
+.login-container.move .overlay:nth-child(2) {
+    z-index: -1;
+    opacity: 0;
+}

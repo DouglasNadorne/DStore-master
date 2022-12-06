@@ -1,0 +1,30 @@
+.form-button {
+    height: 60px;
+    width: 190px;
+    border-radius: 50px;
+    border-style: none;
+    border: 2px solid var(--primary-color);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.form-button:hover {
+    background-color: var(--primary-color);
+    color: var(--second-color);
+}
+
+.form-button-light {
+    border: 2px solid var(--second-color);
+    color: var(--primary-color);
+
+}
+
+.center {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
