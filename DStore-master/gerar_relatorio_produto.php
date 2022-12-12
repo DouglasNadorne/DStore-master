@@ -35,7 +35,6 @@ while ($row_produtos = $result_produtos->fetch(PDO::FETCH_ASSOC)) {
     $dados .= "Preço: $precoProduto <br>";
     $dados .= "Fornecedor: $idFornecedor <br>";
     $dados .= "Categoria: $idCategoria <br>";
-    $dados .= "Data de fabricação: $dataFabricacao <br>";
     $dados .= "Quantidade: $qtdeProduto <br>";
     $dados .= "<hr>";
 }

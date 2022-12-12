@@ -19,7 +19,7 @@ if (formNewProduto) {
     e.preventDefault()
     const dadosForm = new FormData(formNewProduto)
 
-    const dados = await fetch('cadastrar_produto.php', {
+    const dados = await fetch('addProduto.php', {
       method: 'POST',
       body: dadosForm
     })

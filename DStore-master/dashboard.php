@@ -2,6 +2,7 @@
     session_start();
     ob_start();
     include_once("config.php");
+    include_once("confiig.php");
 
     if ((!isset($_SESSION['id'])) and (!isset($_SESSION['nome']))) {
       $_SESSION['msg'] = "<p style='color:red'>Erro: Necessário realizar o login para ter acesso a o nosso sistema!</p>";
@@ -74,22 +75,22 @@
       </li>
       <li>
         <div class="icon-link">
-          <a href="#">
+          <a href="addPedido.php">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="link_name">Vendas</span>
+            <span class="link_name">Pedidos</span>
           </a>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Vendas</a></li>
+          <li><a class="link_name" href="addPedido.php">Pedidos</a></li>
         </ul>
       </li>
       <li>
-        <a href="tela_produtos.php">
+        <a href="addProduto.php">
           <i class="fa-solid fa-boxes-stacked"></i>
           <span class="link_name">Produtos</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="tela_produtos.php">Produtos</a></li>
+          <li><a class="link_name" href="addProduto.php">Produtos</a></li>
         </ul>
       </li>
       <li>
@@ -110,6 +111,7 @@
           <li><a class="link_name" href="tela_usuario.php">Usuarios</a></li>
         </ul>
       </li>
+      <!--
       <li>
         <a href="tela_config.php">
           <i class="fa-solid fa-gear"></i>
@@ -119,6 +121,7 @@
           <li><a class="link_name" href="tela_config.php">Configurações</a></li>
         </ul>
       </li>
+  -->
       <li>
         <div class="profile-details">
           <div class="profile-content">
