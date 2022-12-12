@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 06-Dez-2022 às 01:02
+-- Tempo de geração: 12-Dez-2022 às 23:06
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -32,18 +32,17 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `idCategoria` int(255) NOT NULL AUTO_INCREMENT,
   `nomeCategoria` varchar(255) NOT NULL,
   PRIMARY KEY (`idCategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `categoria`
 --
 
 INSERT INTO `categoria` (`idCategoria`, `nomeCategoria`) VALUES
-(1, 'Placa de vídeo'),
-(2, 'Periféricos'),
-(3, 'Eletrônicos'),
-(4, 'Processadores'),
-(5, 'Periféricos');
+(1, 'Placa de video'),
+(2, 'Perifericos'),
+(3, 'Eletronicos'),
+(4, 'Processadores');
 
 -- --------------------------------------------------------
 
@@ -66,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `rua` varchar(255) NOT NULL,
   `numero` varchar(8) NOT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -95,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `fornecedor` (
   `estado` varchar(255) NOT NULL,
   `cidade` varchar(255) NOT NULL,
   PRIMARY KEY (`idFornecedor`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `fornecedor`
@@ -104,7 +103,9 @@ CREATE TABLE IF NOT EXISTS `fornecedor` (
 INSERT INTO `fornecedor` (`idFornecedor`, `nomeFornecedor`, `cnpj`, `telefoneFornecedor`, `emailFornecedor`, `cep`, `estado`, `cidade`) VALUES
 (8, 'AMD', '55.555.555/5555-55', '(55) 5555-5555', 'amd@gmail.com', '55555-555', 'SP', 'SÃ£o Paulo'),
 (14, 'Intel', '44.444.444/4444-44', '(44) 4444-4444', 'intel@gmail.com', '44444-444', 'SP', 'SÃ£o Paulo'),
-(15, 'Redragon', '11.111.111/1111-11', '(55) 2222-2222', 'Redragon@email.com', '55555-555', 'SP', 'SÃ£o Paulo');
+(15, 'Redragon', '11.111.111/1111-11', '(55) 2222-2222', 'Redragon@email.com', '55555-555', 'SP', 'SÃ£o Paulo'),
+(16, 'Apple', '00.623.904/0001-73', '(08) 7610-8670', 'apple@apple.com', '04542-000', 'SP', 'SÃ£o Paulo'),
+(17, 'Razer', '21.039.319/0001-09', '(13) 3500-8810', 'atendimento@razerzone.com.br', '11045-003', 'SP', 'Santos');
 
 -- --------------------------------------------------------
 
@@ -117,21 +118,23 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `idProduto` int(255) NOT NULL AUTO_INCREMENT,
   `nomeProduto` varchar(255) NOT NULL,
   `descricaoProduto` varchar(510) NOT NULL,
-  `precoProduto` varchar(255) NOT NULL,
-  `idFornecedor` varchar(255) NOT NULL,
-  `idCategoria` varchar(255) NOT NULL,
-  `dataFabricacao` date NOT NULL,
+  `precoProduto` text NOT NULL,
+  `idFornecedor` int(255) NOT NULL,
+  `idCategoria` int(255) NOT NULL,
   `qtdeProduto` int(255) NOT NULL,
   `imagemProduto` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idProduto`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`idProduto`, `nomeProduto`, `descricaoProduto`, `precoProduto`, `idFornecedor`, `idCategoria`, `dataFabricacao`, `qtdeProduto`, `imagemProduto`) VALUES
-(72, 'Teclado', 'Teclado Gamer', '250,00', '8', 'PerifÃ©ricos', '2022-11-29', 20, NULL);
+INSERT INTO `produto` (`idProduto`, `nomeProduto`, `descricaoProduto`, `precoProduto`, `idFornecedor`, `idCategoria`, `qtdeProduto`, `imagemProduto`) VALUES
+(95, 'Mouse', 'mouse gamer', '345,00', 17, 2, 100, ''),
+(96, 'Teclado', 'Teclado gamer', '255,00', 15, 2, 100, ''),
+(97, 'Monitor', 'Monitor Full HD', '860,00', 15, 2, 100, ''),
+(98, 'Iphone', 'Iphone', '2.500,00', 16, 3, 90, '');
 
 -- --------------------------------------------------------
 
@@ -153,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `senha` varchar(255) NOT NULL,
   `recuperar_senha` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -163,6 +166,32 @@ INSERT INTO `usuario` (`id`, `nome`, `email`, `data_nascimento`, `cpf`, `cargo`,
 (1, 'Devenix', 'grupodevenix@gmail.com', '2001-11-27', '222.222.222-22', 'administrador', '66616-191', 'SP', 'Suzano', '$2y$10$5EujzoOI9mV2umQbG9pHienyJNQXsLeuj/xkhtGqaWzskXqFkmfrq', 'NULL'),
 (2, 'Amanda', 'amanda@email.com', '2000-05-15', '669.292.994-99', 'Gerente', '08888-888', 'SP', 'Santos', '$2y$10$YqkdoIOrhe4912/qilq0Eeb/Z1lSurNdikgwJCAYLoWA25FhWDuIi', 'NULL'),
 (6, 'Carlos', 'carlos@carlos.com', '2000-05-30', '444.444.444-44', 'gerente', '88888-888', 'SP', 'PoÃ¡', '$2y$10$Uj9vfeElkp9bqKiombVrg.Sdo2Iqumigoi58Fw4c9Xlvf3jgDIvDu', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `venda`
+--
+
+DROP TABLE IF EXISTS `venda`;
+CREATE TABLE IF NOT EXISTS `venda` (
+  `idVenda` int(11) NOT NULL AUTO_INCREMENT,
+  `idProduto` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `valorTotal` double NOT NULL,
+  `data` date NOT NULL,
+  PRIMARY KEY (`idVenda`)
+) ENGINE=MyISAM AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `venda`
+--
+
+INSERT INTO `venda` (`idVenda`, `idProduto`, `idUsuario`, `idCliente`, `valorTotal`, `data`) VALUES
+(116, 98, 2, 2, 10, '2022-12-12'),
+(100, 80, 1, 4, 798, '2022-12-05'),
+(115, 96, 6, 4, 15, '2022-12-12');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
